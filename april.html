@@ -256,42 +256,50 @@ function show(id) {
 
 const noBtn = document.getElementById("noBtn");
 
-// This function handles the "Dodge"
-function dodge() {
+// THE MOVE FUNCTION
+function dodge(e) {
   if (moveCount < 10) {
-    noBtn.style.position = "absolute";
-    noBtn.style.left = Math.random() * 70 + 5 + "%"; // Stays within screen
-    noBtn.style.top = Math.random() * 70 + 5 + "%";
+    // If it's a touch event, stop the "click" from happening
+    if (e && e.type === 'touchstart') {
+      e.preventDefault();
+    }
+
+    // Force absolute positioning
+    noBtn.style.position = "fixed"; 
+    
+    // Calculate random position (staying away from edges)
+    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+    
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+    
     moveCount++;
-    noBtn.style.opacity = 1 - (moveCount * 0.07); 
+    noBtn.style.opacity = 1 - (moveCount * 0.07);
+    console.log("Moves: " + moveCount); // For debugging
   } else {
-    // Stop dodging
-    noBtn.style.position = "static"; 
+    // STOP DODGING
+    noBtn.style.position = "static";
     noBtn.style.opacity = "1";
     noBtn.innerText = "Fine... click it 😢";
   }
 }
 
-// Works for PC (Mouse)
+// 1. Handle PC mouse hover
 noBtn.addEventListener("mouseover", dodge);
 
-// Works for Mobile (Touch)
-noBtn.addEventListener("touchstart", (e) => {
-  if (moveCount < 10) {
-    e.preventDefault(); // Prevents the actual click from happening until it's tired
-    dodge();
-  }
-});
+// 2. Handle Mobile first-touch (most important for phone)
+noBtn.addEventListener("touchstart", dodge, {passive: false});
 
-// Launch Reconsideration when finally clicked
-noBtn.addEventListener("click", () => {
-  if(moveCount >= 10) {
+// 3. Handle the final click
+noBtn.onclick = function() {
+  if (moveCount >= 10) {
     show('reconsider1');
   } else {
-    // If she manages to click it before 10 on mobile
+    // If she somehow clicks it before 10 moves, move it again
     dodge();
   }
-});
+};
 </script>
 
 </body>
