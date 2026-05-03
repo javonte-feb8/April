@@ -1,0 +1,280 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Second Date Resume</title>
+<style>
+  body {
+    margin: 0;
+    font-family: "Helvetica Neue", sans-serif;
+    background: linear-gradient(135deg, #ffe6eb, #fff);
+    overflow: hidden;
+    text-align: left;
+  }
+
+  .slide {
+    display: none;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .active {
+    display: flex;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    max-width: 500px;
+  }
+
+  button {
+    padding: 12px 24px;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .next {
+    background: #333;
+    color: white;
+  }
+
+  .back {
+    background: #eee;
+    color: #555;
+  }
+
+  .yes {
+    background: #ff4d6d;
+    color: white;
+  }
+
+  .no {
+    background: #ccc;
+  }
+
+  .image-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 10px 0;
+  }
+
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  /* Shrinking No Buttons */
+  #noSmall1 { transform: scale(0.8); }
+  #noSmall2 { transform: scale(0.5); }
+  #noSmall3 { transform: scale(0.2); }
+
+</style>
+</head>
+<body>
+
+<!-- Slide 1 -->
+<div class="slide active">
+  <h1>Resume/CV For A Proper Date With <br> Ms. April Helen Jules Paterson</h1>
+  <p>Ready to unpack a nerd? 🤓 </p>
+  <button class="next" onclick="next()">Let's Begin →</button>
+</div>
+
+<!-- Slide 2 -->
+<div class="slide">
+  <h1>👤 Candidate</h1>
+
+  <!-- NEW IMAGE CONTAINER -->
+  <div class="image-container">
+    <!-- Replace 'photo1.jpg' with your first filename -->
+    <img src="youngBoy.jpg" alt="Yuchao Photo 1" class="profile-pic">
+    
+    <!-- Replace 'photo2.jpg' with your second filename -->
+    <img src="noyoungBoy.jpg" alt="Yuchao Photo 2" class="profile-pic">
+  </div>
+  <!-- END IMAGE CONTAINER -->
+
+  <p><strong>Name</strong>: Yuchao Bian<br>
+     <strong>AKA</strong>: Yuchao Jonathan Joseph Jakbar Jamar Javonté Jun Thevonlios Bian VI<br>
+     <strong>Status</strong>: Interested in a proper date with the gal from land down under</p>
+  <button class="back" onclick="prev()">← Back</button>
+  <button class="next" onclick="next()">Next →</button>
+</div>
+
+<!-- Slide 3 -->
+<div class="slide">
+  <h1>STATS</h1>
+  <p><strong>Age</strong>: 25<br>
+     <strong>Gender</strong>: Male<br>
+     <strong>Nationality</strong>: China 🇨🇳 <br>
+     <strong>Height</strong>: 1.11 times of April<br>
+     <strong>Weight</strong>: 85kg<br>
+     <strong>Bench/Squat/Deadlift</strong>: 120kg/170kg/180kg<br>
+     <strong>NOT FOR SALE</strong></p>
+  <button class="back" onclick="prev()">← Back</button>
+  <button class="next" onclick="next()">Next →</button>
+</div>
+
+<!-- Slide 4 -->
+<div class="slide">
+  <h1>👨🏿‍💻 Employment Status</h1>
+  <p>Full time nerd<br>
+     Part time entrepreneur<br>
+     Part time rizzosaur</p>
+  <button class="back" onclick="prev()">← Back</button>
+  <button class="next" onclick="next()">Next →</button>
+</div>
+
+<!-- Slide 5 -->
+<div class="slide">
+  <h1>❓Reasons for applying</h1>
+  <p>• A yearner who's attracted<br>
+     • Wants to collect more data to make a verdict<br>
+     • Has not met CasPAH🗣️ yet<br>
+     • Wants to learn Aprilology and her language<br>
+     • Wants to be a better man<br>
+     • Is attracted</p>
+  <button class="back" onclick="prev()">← Back</button>
+  <button class="next" onclick="next()">Next →</button>
+</div>
+
+<!-- Slide 6 -->
+<div class="slide">
+  <h1>🎁 What I can offer for the position</h1>
+  <p>• A relaxing vibe<br>
+     • Certified listener<br>
+     • Make her "one day"s come sooner<br>
+     • More restaurant exploration<br>
+     • Shoulder ride and biceps</p>
+  <button class="back" onclick="prev()">← Back</button>
+  <button class="next" onclick="next()">Next →</button>
+</div>
+
+<!-- Slide 7 -->
+<div class="slide">
+  <h1>Technical skills</h1>
+  <p>• Python, R, C++, Calculus, SQL<br>
+     • Guitar<br>
+     • Full body massage<br>
+     • Teleport (Learning)<br>
+     • Cartwheel (Learning)</p>
+  <button class="back" onclick="prev()">← Back</button>
+  <button class="next" onclick="next()">Next →</button>
+</div>
+
+<!-- Final Question -->
+<!-- Final Question -->
+<div class="slide" id="question">
+  <h1>📌 Final Question</h1>
+  <p>Would you like to proceed to <strong>Round 2</strong>?</p>
+  <div>
+    <button class="yes" onclick="show('yesPage')">Yes 🫦</button>
+    <button class="no" id="noBtn">No 🤮</button>
+  </div>
+</div>
+
+<!-- RECONSIDER 1 -->
+<div class="slide" id="reconsider1">
+  <h1>🤨 Are you sure?</h1>
+  <p>I'll bark at your meow</p>
+  <div>
+    <button class="yes" onclick="show('yesPage')">Okay, Yes 💖</button>
+    <button class="no" id="noSmall1" onclick="show('reconsider2')">No 💩</button>
+  </div>
+</div>
+
+<!-- RECONSIDER 2 -->
+<div class="slide" id="reconsider2">
+  <h1>Ouch, the story hasn't begun yet</h1>
+  <p>I'll be able to teleport, anytime, anywhere (Maybe).</p>
+  <div>
+    <button class="yes" onclick="show('yesPage')">Fine, Yes 💖</button>
+    <button class="no" id="noSmall2" onclick="show('reconsider3')">No</button>
+  </div>
+</div>
+
+<!-- RECONSIDER 3 -->
+<div class="slide" id="reconsider3">
+  <h1>🤔 Last chance...</h1>
+  <p>I'll show up with mango sticky rice faster than DoorDash guy and at the correct location</p>
+  <div>
+    <button class="yes" onclick="show('yesPage')">Yes </button>
+    <button class="no" id="noSmall3" onclick="show('finalPage')">No</button>
+  </div>
+</div>
+
+<!-- YES PAGE -->
+<div class="slide" id="yesPage">
+  <h1>🎉 Good girl</h1>
+  <p>You'll get an <strong>unforgettable</strong> date.</p>
+  <p><strong>Next mission</strong>: I'll come up with a better itinerary</p>
+</div>
+
+<!-- FINAL PERSUASION (Double Yes) -->
+<div class="slide" id="finalPage">
+  <h1>😏 Reconsideration Required</h1>
+  <p>Just go on a date with me, let’s make it <strong>unforgettable</strong>.</p>
+  <button class="yes" onclick="show('yesPage')">Yes 😛</button>
+  <button class="yes" onclick="show('yesPage')">Yes (obviously🫦)</button>
+</div>
+
+<script>
+let current = 0;
+let moveCount = 0;
+const slides = document.querySelectorAll(".slide");
+
+function next() {
+  slides[current].classList.remove("active");
+  current++;
+  slides[current].classList.add("active");
+}
+
+function prev() {
+  if (current > 0) {
+    slides[current].classList.remove("active");
+    current--;
+    slides[current].classList.add("active");
+  }
+}
+
+function show(id) {
+  slides.forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", () => {
+  if (moveCount < 10) {
+    noBtn.style.position = "absolute";
+    noBtn.style.left = Math.random() * 80 + "%";
+    noBtn.style.top = Math.random() * 80 + "%";
+    moveCount++;
+    noBtn.style.opacity = 1 - (moveCount * 0.05); 
+  } else {
+    noBtn.style.position = "static"; 
+    noBtn.style.opacity = "1";
+    noBtn.innerText = "C'mon girl you about to make a brother desperate";
+  }
+});
+
+noBtn.addEventListener("click", () => {
+  if(moveCount >= 10) show('reconsider1');
+});
+</script>
+
+</body>
+</html>
