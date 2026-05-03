@@ -176,7 +176,6 @@
 </div>
 
 <!-- Final Question -->
-<!-- Final Question -->
 <div class="slide" id="question">
   <h1>📌 Final Question</h1>
   <p>Would you like to proceed to <strong>Round 2</strong>?</p>
@@ -257,22 +256,41 @@ function show(id) {
 
 const noBtn = document.getElementById("noBtn");
 
-noBtn.addEventListener("mouseover", () => {
+// This function handles the "Dodge"
+function dodge() {
   if (moveCount < 10) {
     noBtn.style.position = "absolute";
-    noBtn.style.left = Math.random() * 80 + "%";
-    noBtn.style.top = Math.random() * 80 + "%";
+    noBtn.style.left = Math.random() * 70 + 5 + "%"; // Stays within screen
+    noBtn.style.top = Math.random() * 70 + 5 + "%";
     moveCount++;
-    noBtn.style.opacity = 1 - (moveCount * 0.05); 
+    noBtn.style.opacity = 1 - (moveCount * 0.07); 
   } else {
+    // Stop dodging
     noBtn.style.position = "static"; 
     noBtn.style.opacity = "1";
-    noBtn.innerText = "C'mon girl you about to make a brother desperate";
+    noBtn.innerText = "Fine... click it 😢";
+  }
+}
+
+// Works for PC (Mouse)
+noBtn.addEventListener("mouseover", dodge);
+
+// Works for Mobile (Touch)
+noBtn.addEventListener("touchstart", (e) => {
+  if (moveCount < 10) {
+    e.preventDefault(); // Prevents the actual click from happening until it's tired
+    dodge();
   }
 });
 
+// Launch Reconsideration when finally clicked
 noBtn.addEventListener("click", () => {
-  if(moveCount >= 10) show('reconsider1');
+  if(moveCount >= 10) {
+    show('reconsider1');
+  } else {
+    // If she manages to click it before 10 on mobile
+    dodge();
+  }
 });
 </script>
 
